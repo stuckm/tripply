@@ -104,7 +104,7 @@ const Close = styled(RiCloseLine)`
 const NavMenu = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 150px;
+  margin-right: -80px;
   @media screen and (max-width: 768px) {
     display: none;
   }
