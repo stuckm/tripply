@@ -1,4 +1,4 @@
-import { Link, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import React, { useState } from "react"
 import styled from "styled-components"
 import { FaBars } from "react-icons/fa"
@@ -12,9 +12,12 @@ const Header = ({ trans }) => {
     <Nav trans={trans}>
       {open ? (
         <MobileMenu>
-          <div onClick={() => setOpen(!open)}>
-            {open ? <Close /> : <Bars />}
-          </div>
+          {open ? (
+            <Close onClick={() => setOpen(!open)} />
+          ) : (
+            <Bars onClick={() => setOpen(!open)} />
+          )}
+
           <div style={{ marginTop: "100px" }}>
             {menuData.map((item, index) => (
               <MobileNavLink to={item.link} key={index}>
@@ -25,7 +28,11 @@ const Header = ({ trans }) => {
         </MobileMenu>
       ) : null}
       <NavLink to="/">Tripply</NavLink>
-      <div onClick={() => setOpen(!open)}>{open ? <Close /> : <Bars />}</div>
+      {open ? (
+        <Close onClick={() => setOpen(!open)} />
+      ) : (
+        <Bars onClick={() => setOpen(!open)} />
+      )}
 
       <NavMenu>
         {menuData.map((item, index) => (
